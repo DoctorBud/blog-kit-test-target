@@ -1,0 +1,128 @@
+<p>Just fork this repo and replace the posts with your own. Also rename the sample poetry collection to replace it with your own collection, or just delete it if you don’t need to use collections. The example is poetry, but you can easily revamp this into essays, short stories, portfolio, or whatever your creative work is.</p>
+
+<p>OR you can also install this theme as a theme gem. To do that, add to your Gemfile:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gem</span> <span class="s2">"sparrow-jekyll-theme"</span>
+</code></pre></div></div>
+
+<p>And add this line site’s <code class="highlighter-rouge">_config.yml</code>:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">theme</span><span class="pi">:</span> <span class="s">sparrow-jekyll-theme</span>
+</code></pre></div></div>
+
+<p>And then do <code class="highlighter-rouge">bundle install</code>.</p>
+
+<p>To run your site locally, do <code class="highlighter-rouge">bundle exec jekyll serve</code>.</p>
+
+<p>For customization, see below.</p>
+
+<ul>
+  <li><a href="#general-configuration">General configuration</a></li>
+  <li><a href="#disqus">Disqus</a></li>
+  <li><a href="#google-analytics">Google analytics</a></li>
+  <li><a href="#collections">Collections</a></li>
+  <li><a href="#pagination">Pagination</a></li>
+  <li><a href="#navigation">Navigation</a></li>
+  <li><a href="#front-matter-defaults">Front matter defaults</a></li>
+  <li><a href="#other">Other</a></li>
+</ul>
+
+<h3 id="general-configuration">General configuration</h3>
+
+<p>Customize these values in the <code class="highlighter-rouge">_config.yml</code> file:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">title                    </span><span class="pi">:</span> <span class="s2">"</span><span class="s">Sparrow"</span>
+<span class="na">title_separator          </span><span class="pi">:</span> <span class="s2">"</span><span class="s">-"</span>
+<span class="na">description              </span><span class="pi">:</span> <span class="s2">"</span><span class="s">A</span><span class="nv"> </span><span class="s">clean</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">minimal</span><span class="nv"> </span><span class="s">theme</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">writers."</span>
+<span class="na">favicon                  </span><span class="pi">:</span> <span class="s2">"</span><span class="s">/assets/images/bird.png"</span>
+<span class="na">avatar                   </span><span class="pi">:</span> <span class="s2">"</span><span class="s">/assets/images/bird.png"</span>
+<span class="na">url                      </span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://theconfused.me"</span> <span class="c1"># the base hostname &amp; protocol for your site e.g. "https://mmistakes.github.io"</span>
+<span class="na">baseurl                  </span><span class="pi">:</span> <span class="s2">"</span><span class="s">/sparrow"</span> 
+
+<span class="c1"># Site Author</span>
+<span class="na">author</span><span class="pi">:</span>
+  <span class="na">name                   </span><span class="pi">:</span> <span class="s2">"</span><span class="s">Lingyi"</span> <span class="c1"># appears in the footer and atom feed</span>
+</code></pre></div></div>
+
+<h3 id="disqus">Disqus</h3>
+
+<p>To activate Disqus, fill in your disqus shortname:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">comments                 </span><span class="pi">:</span> <span class="no">true</span> <span class="c1"># set it to false to disable comments</span>
+<span class="na">disqus</span><span class="pi">:</span>
+  <span class="na">shortname              </span><span class="pi">:</span> <span class="s">your_shortname</span>
+</code></pre></div></div>
+
+<h3 id="google-analytics">Google analytics</h3>
+
+<p>Enable google analytics by filling in your tracking ID:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">analytics</span><span class="pi">:</span>
+  <span class="na">google</span><span class="pi">:</span>
+    <span class="na">tracking_id          </span><span class="pi">:</span> <span class="c1"># add your google tracking id here</span>
+</code></pre></div></div>
+
+<h3 id="collections">Collections</h3>
+
+<p>If you are using collections, be sure to replace this with your collection name:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">collections</span><span class="pi">:</span>
+  <span class="na">poetry</span><span class="pi">:</span>
+    <span class="na">output</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">permalink</span><span class="pi">:</span> <span class="s">/:collection/:title/</span>
+</code></pre></div></div>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Currently, pagination is set to a the blog page. Unfortunately Jekyll does not yet support pagination on multiple pages.</p>
+
+<p>If you want to paginate on a different page, simply change the <code class="highlighter-rouge">paginate_path</code> value in the config file and create the relevant page.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">paginate</span><span class="pi">:</span> <span class="m">5</span> <span class="c1"># amount of posts to show</span>
+<span class="na">paginate_path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/blog/page:num/"</span>
+<span class="na">timezone</span><span class="pi">:</span> <span class="c1"># http://en.wikipedia.org/wiki/List_of_tz_database_time_zones</span>
+</code></pre></div></div>
+
+<h3 id="navigation">Navigation</h3>
+
+<p>You can change the navigation links in <code class="highlighter-rouge">_data/navigation.yml</code>.</p>
+
+<h3 id="front-matter-defaults">Front matter defaults</h3>
+
+<p>At the bottom of the config file, you can also set <a href="https://jekyllrb.com/docs/configuration/#front-matter-defaults">front matter defaults</a> so that you don’t have to repeat the same front matter for every post. This is an example:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Front matter defaults</span>
+<span class="na">defaults</span><span class="pi">:</span>
+  <span class="c1"># _pages</span>
+  <span class="pi">-</span> <span class="na">scope</span><span class="pi">:</span>
+      <span class="na">path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+      <span class="na">type</span><span class="pi">:</span> <span class="s">pages</span>
+    <span class="na">values</span><span class="pi">:</span>
+      <span class="na">layout</span><span class="pi">:</span> <span class="s">page</span>
+      <span class="na">comments</span><span class="pi">:</span> <span class="no">false</span>
+  <span class="c1"># _posts</span>
+  <span class="pi">-</span> <span class="na">scope</span><span class="pi">:</span>
+      <span class="na">path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+      <span class="na">type</span><span class="pi">:</span> <span class="s">posts</span>
+    <span class="na">values</span><span class="pi">:</span>
+      <span class="na">layout</span><span class="pi">:</span> <span class="s">post</span>
+      <span class="na">comments</span><span class="pi">:</span> <span class="no">true</span>
+      <span class="na">share</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="c1"># _poetry</span>
+  <span class="pi">-</span> <span class="na">scope</span><span class="pi">:</span>
+      <span class="na">path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+      <span class="na">type</span><span class="pi">:</span> <span class="s">poetry</span>
+    <span class="na">values</span><span class="pi">:</span>
+      <span class="na">layout</span><span class="pi">:</span> <span class="s">post</span>
+      <span class="na">share</span><span class="pi">:</span> <span class="no">false</span>
+</code></pre></div></div>
+
+<h3 id="other">Other</h3>
+
+<p>To enhance SEO, you can add your twitter username to <code class="highlighter-rouge">_config.yml</code>.</p>
+
+<p>You can also add a image path for the <code class="highlighter-rouge">og_image</code> value in the config file, for a default open graph sharing image. This value can be overridden in individual posts.</p>
+
+<p>There are also helper classes for ease of inserting image and their captions, adapted from the <a href="https://github.com/mmistakes/minimal-mistakes">Minimal Mistakes theme by Michael Rose</a>. You can find a <a href="https://theconfused.me/sparrow/blog/post-with-image/">sample post with images</a> on the <a href="https://theconfused.me/sparrow">demo site</a>.</p>
+
+<p>The color schemes and fonts can also be customized through scss, by editing the relevant variable in <code class="highlighter-rouge">_variables.scss</code>.</p>

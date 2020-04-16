@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/blog-kit-test-target/sparrow/feed.xml" rel="self" type="application/atom+xml" /><link href="/blog-kit-test-target/sparrow/" rel="alternate" type="text/html" /><updated>2020-04-16T06:51:12-07:00</updated><id>/blog-kit-test-target/sparrow/feed.xml</id><title type="html">Smartdown Blog</title><subtitle>Sparrow Blog Theme adapted for Smartdown</subtitle><entry><title type="html">A Brief Tour of Smartdown</title><link href="/blog-kit-test-target/sparrow/posts/ABriefTourOfSmartdown/" rel="alternate" type="text/html" title="A Brief Tour of Smartdown" /><published>2020-02-04T00:00:00-08:00</published><updated>2020-02-04T00:00:00-08:00</updated><id>/blog-kit-test-target/sparrow/posts/ABriefTourOfSmartdown</id><content type="html" xml:base="/blog-kit-test-target/sparrow/posts/ABriefTourOfSmartdown/"># WelcomeToSmartdown
+---
+
+## Welcome to Smartdown
+
+Smartdown is an extension of Markdown that includes several additions:
+- Technical notation support, including [MathJax](https://www.mathjax.org) LaTeX and AsciiMath syntax, chemical notation via [`mhchem`](https://mhchem.github.io/MathJax-mhchem/),
+- Syntax highlighting via [highlight.js](https://highlightjs.org).
+- Reactive cells similar to those in a spreadsheet, but inline with Smartdown prose. These cells can be used for input, output, calculation, and for interacting with internet APIs such as Wikidata.
+- Media embedding support including Images, Tweets, SVG, Video.
+- [p5.js](https://p5js.org) to support drawing-based visualizations, games, and sound.
+- [Plotly.js](https://plot.ly/javascript/) to support data visualizations including various plots, charts, and maps.
+- [Leaflet.js](http://leafletjs.com) for easy embedding of geo-based data and maps.
+- [Graphviz via `viz.js`](http://viz-js.com) diagrams are a standard format used for technical and scientific diagrams
+- Much MuchMuchMuchMuch more
+
+
+### Map of functionality
+
+Use the navigation buttons below to explore different aspects of Smartdown.
+
+- [Math](:@Math)
+- [Cells](:@Cells)
+- [P5JS](:@P5JS)
+- [SVG](:@SVG)
+- [Mermaid](:@Mermaid)
+
+Note that the above links are intra-document links in a MultiCard Smartdown document.
+
+The links below, however, are inter-document links between one Smartdown document, and another. In both of these cases, no page-reload occurs and state is maintained.
+
+[Smartdown Tour](:@/posts/ABriefTourOfSmartdown.md)
+[Welcome To My Blog](:@/posts/WelcomeToMyBlog.md)
+
+### GIF Example
+
+I'm experimenting with incorporating GIFs for the purpose of building a tutorial. Below is a short video of the [Smartdown Viewer](https://smartdown.site) being used to edit Smartdown:
+
+![player](/assets/images/Intro.gif)
+
+---
+
+
+*Post Source: [`/posts/ABriefTourOfSmartdown.md`](/posts/ABriefTourOfSmartdown.md#-blank)*
+
+
+# SVG
+---
+
+Smartdown allows SVG images to be registered and preprocessd so that they can be dynamically styled. For this example, we incorporate an SVG from [Wikimedia Hypercube](https://commons.wikimedia.org/wiki/File:Hypercube.svg).
+
+We can use ordinary Markdown image syntax:
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Hypercube.svg/500px-Hypercube.svg.png)
+
+Or, we can use Smartdowns `/media` syntax and amend it with styling:
+
+|hypercube|pulse|clockwise|cclockwise|bluegreen|
+|:---:|:---:|:---:|:---:|:---:|
+|![](/media/hypercube)|![](/media/hypercube/pulse)|![](/media/hypercube/clockwise)|![](/media/hypercube/cclockwise)|![](/media/hypercube/bluegreen)|
+|![](/media/StalactiteStalagmite)|![](/media/StalactiteStalagmite/pulse)|![](/media/StalactiteStalagmite/clockwise)|![](/media/StalactiteStalagmite/cclockwise)|![](/media/StalactiteStalagmite/bluegreen)|
+
+---
+
+[Back to Home](:@WelcomeToSmartdown)
+
+
+# Math
+---
+
+#### Math Example
+
+By using MathJax, we can display all sorts of notation.
+
+We can do inline math: $E = mc^2$
+
+Or we can do block math:
+
+$$
+A \longrightarrow B
+$$
+
+$$
+\begin{array}{c|lcr}
+n &amp; \text{Left} &amp; \text{Center} &amp; \text{Right} \\
+\hline
+1 &amp; 0.24 &amp; 1 &amp; 125 \\
+2 &amp; -1 &amp; 189 &amp; -8 \\
+3 &amp; -20 &amp; 2000 &amp; 1+10i
+\end{array}
+$$
+
+And even diagrams via *xyjax*:
+
+$$
+\begin{xy}
+0;&lt;1em,0em&gt;:
+(1,1);p+/v a(18) 5.5em/**@{-},
+(1,3);p+/v a(18) 5.5em/**@2{-},
+(1,5);p+/v a(18) 5.5em/**@3{-},
+(1,9);p+/v a(18) 5.5em/**@{.},
+(1,11);p+/v a(18) 5.5em/**@2{.},
+(1,13);p+/v a(18) 5.5em/**@3{..},
+\end{xy}
+$$
+
+#### MathJax $\LaTeX$ vs AsciiMath Syntax
+
+Recently, I learned that MathJax had an alternative syntax, [AsciiMath](http://asciimath.org) that is simpler for many purposes. Smartdown has enabled this feature, although we are currently using `@` as the delimiter instead of \` or `$`.
+
+##### $\LaTeX$ Syntax
+
+Currently, Smartdown uses LaTeX-style math syntax, so the following formula:
+
+$$
+\sum_{i=1}^{n} i^3=\left(\frac{n(n+1)}{2}\right)^2
+$$
+
+is expressed as:
+
+```
+$$
+\sum_{i=1}^{n} i^3=\left(\frac{n(n+1)}{2}\right)^2
+$$
+```
+
+##### AsciiMath Syntax
+
+The above formula is expressed in AsciiMath (using `@` as delimiters) as:
+
+```
+@sum_(i=1)^n i^3=((n(n+1))/2)^2@
+```
+
+which Smartdown now renders as:
+
+@sum_(i=1)^n i^3=((n(n+1))/2)^2@
+
+Note that AsciiMath via MathJax does not support *display-mode* equations, but centering can be achieved via Markdown table syntax:
+
+
+|`@sum_(i=1)^n i^3=((n(n+1))/2)^2@`|
+|:---:|
+|@sum_(i=1)^n i^3=((n(n+1))/2)^2@|
+
+
+---
+
+[Back to Home](:@WelcomeToSmartdown)
+
+
+# Mermaid
+---
+
+[Mermaid.js](https://mermaid-js.github.io/mermaid/#/) is a Javascript library that uses textual descriptions of diagrams and then renders these dynamically in the browser. From their site:
+
+&gt; mermaid is a Javascript based diagramming and charting tool. It generates diagrams flowcharts and more, using markdown-inspired text for ease and speed.
+
+Smartdown has embraced Mermaid and makes it easy to embed Mermaid diagrams within prose.
+
+```mermaid/playable
+
+%% Example of sequence diagram
+
+graph LR
+    id1((This is the text in the circle));
+```
+
+---
+
+
+```mermaid/playable
+graph TB
+   subgraph one
+   a1--&gt;a2{Rhombus}
+   end
+   subgraph two
+   b1--&gt;b2[This is a really long label.]
+   end
+   subgraph three
+   c1--&gt;c2
+   end
+   c1--&gt;a2
+```
+
+We can do inline math: $E = mc^2$
+
+---
+
+[Back to Home](:@WelcomeToSmartdown)
+
+
+# Cells
+---
+
+
+## Cells - Reactive Spreadsheet Cells
+
+Smartdown uses ordinary Markdown link syntax to specify a cell *label* and *body*, where the *label* is specified in the link label, and the *body* is specified in the link's URL. For example, the following declares an *output* cell that displays the value of the `FOO` variable:
+
+```markdown
+[The value of FOO is](:!FOO)
+```
+
+When a non-empty label is present, the cell will be formatted with its label on its own line. When no label is present, then the cell will be formatted inline.
+
+### Cells with labels get their own line
+
+- [What is your name?](:?NAME)
+- [Glad to meet you](:!NAME)
+- [What is your name again?](:?NAME)
+- [Really glad to meet you](:!NAME)
+- [Are you human?](:XHUMAN)
+- [Humanity](:!HUMAN)
+
+
+### Cells with no labels are inlined
+
+What is your name? [](:?NAME) So glad to meet you [](:!NAME). What is your name again? [](:?NAME) Really glad to meet you [](:!NAME).
+Are you human? [](:XHUMAN) Your Humanity is [](:!HUMAN).
+
+
+
+### External Data Query
+
+*The Smartdown code below is a work in progress and the syntax used is experimental and in flux.*
+
+One of the goals of Smartdown is to enable simple text files to express rich interactive experiences that involve live data. Ideally, web-based services would already exist to serve the data-hunger of Smartdown. In this example, we are exploring the use of [Wikidata](https://www.wikidata.org) as a data source.
+
+Limitations of the current tech include:
+
+- The [Falcor](https://netflix.github.io/falcor/) syntax is a hack and is not using the Falcor library.
+- The current example emphasizes the extraction of thumbnail images from Wikidata and does not display or utilize the full set of metadata returned.
+
+[WHAT do you want to look up?](:?WHAT)
+
+Examples:
+- Earth
+- Penguin
+- Uranium
+- Oregon
+- Abraham Lincoln
+- [`WHAT`](:=LOOKUP=/wikidata[&quot;`WHAT`&quot;])
+- [`WHAT` thumbnails](:=LOOKUP=/wikidataThumbs[&quot;`WHAT`&quot;])
+- [`WHAT` images](:=LOOKUP=/wikidataImages[&quot;`WHAT`&quot;])
+
+
+- [Albert Einstein|Marie Curie|Max Plank (Slash, Thumbnails)](:=LOOKUP=/wikidataThumbs/Albert%20Einstein|Marie%20Curie|Max%20Plank)
+- [Albert Einstein (Falcor, Thumbnails)](:=LOOKUP=/wikidataThumbs[&quot;Albert%20Einstein&quot;])
+- [Albert Einstein|Marie Curie|Max Plank (Slash, Original)](:=LOOKUP=/wikidataImages/Albert%20Einstein|Marie%20Curie|Max%20Plank)
+- [Albert Einstein (Falcor, Original)](:=LOOKUP=/wikidataImages[&quot;Albert%20Einstein&quot;])
+- [Lookup result](:!LOOKUP)
+
+---
+
+[](:!LOOKUP)
+
+---
+
+[Back to Home](:@WelcomeToSmartdown)
+
+
+# P5JS
+---
+
+## P5JS Experiments
+
+Here's a small set of what is possible with Smartdown and [p5.js](https://p5js.org).
+
+More examples can be seen at [smartdown.site](https://smartdown.site).
+
+The Ellipse example below is an `/autoplay` playable. You can click `Stop` to see its source. The subsequent `Tickle` playable is not `/autoplay`, so you will click `Play` to play it.
+
+### P5JS Ellipse Example
+
+```p5js /playable/autoplay
+p5.setup = function() {
+};
+
+p5.draw = function() {
+  p5.ellipse(50, 50, 80, 80);
+};
+```
+
+##### Tickle example with Instance mode Syntax
+
+```p5js/playable
+var message = &quot;tickle&quot;,
+  font,
+  bounds, // holds x, y, w, h of the text's bounding box
+  fontsize = 60,
+  x, y; // x and y coordinates of the text
+
+p5.preload = function preload() {
+  font = p5.loadFont('https://unpkg.com/smartdown-gallery/resources/SourceSansPro-Regular.otf');
+};
+
+p5.setup = function setup() {
+  p5.createCanvas(410, 250);
+
+  // set up the font
+  p5.textFont(font);
+  p5.textSize(fontsize);
+
+  // get the width and height of the text so we can center it initially
+  bounds = font.textBounds(message, 0, 0, fontsize);
+  x = p5.width / 2 - bounds.w / 2;
+  y = p5.height / 2 - bounds.h / 2;
+};
+
+p5.draw = function draw() {
+  p5.background(204, 120);
+
+  // write the text in black and get its bounding box
+  p5.fill(0);
+  p5.text(message, x, y);
+  bounds = font.textBounds(message,x,y,fontsize);
+
+  // check if the mouse is inside the bounding box and tickle if so
+  if ( p5.mouseX &gt;= bounds.x &amp;&amp; p5.mouseX &lt;= bounds.x + bounds.w &amp;&amp;
+    p5.mouseY &gt;= bounds.y &amp;&amp; p5.mouseY &lt;= bounds.y + bounds.h) {
+    x += p5.random(-5, 5);
+    y += p5.random(-5, 5);
+  }
+};
+```
+
+---
+
+[Back to Home](:@WelcomeToSmartdown)</content><author><name></name></author><category term="welcome" /><category term="smartdown" /><summary type="html"># WelcomeToSmartdown --- ## Welcome to Smartdown Smartdown is an extension of Markdown that includes several additions: - Technical notation support, including [MathJax](https://www.mathjax.org) LaTeX and AsciiMath syntax, chemical notation via [`mhchem`](https://mhchem.github.io/MathJax-mhchem/), - Syntax highlighting via [highlight.js](https://highlightjs.org). - Reactive cells similar to those in a spreadsheet, but inline with Smartdown prose. These cells can be used for input, output, calculation, and for interacting with internet APIs such as Wikidata. - Media embedding support including Images, Tweets, SVG, Video. - [p5.js](https://p5js.org) to support drawing-based visualizations, games, and sound. - [Plotly.js](https://plot.ly/javascript/) to support data visualizations including various plots, charts, and maps. - [Leaflet.js](http://leafletjs.com) for easy embedding of geo-based data and maps. - [Graphviz via `viz.js`](http://viz-js.com) diagrams are a standard format used for technical and scientific diagrams - Much MuchMuchMuchMuch more ### Map of functionality Use the navigation buttons below to explore different aspects of Smartdown. - [Math](:@Math) - [Cells](:@Cells) - [P5JS](:@P5JS) - [SVG](:@SVG) - [Mermaid](:@Mermaid) Note that the above links are intra-document links in a MultiCard Smartdown document. The links below, however, are inter-document links between one Smartdown document, and another. In both of these cases, no page-reload occurs and state is maintained. [Smartdown Tour](:@/posts/ABriefTourOfSmartdown.md) [Welcome To My Blog](:@/posts/WelcomeToMyBlog.md) ### GIF Example I'm experimenting with incorporating GIFs for the purpose of building a tutorial. Below is a short video of the [Smartdown Viewer](https://smartdown.site) being used to edit Smartdown: ![player](/assets/images/Intro.gif) --- *Post Source: [`/posts/ABriefTourOfSmartdown.md`](/posts/ABriefTourOfSmartdown.md#-blank)* # SVG --- Smartdown allows SVG images to be registered and preprocessd so that they can be dynamically styled. For this example, we incorporate an SVG from [Wikimedia Hypercube](https://commons.wikimedia.org/wiki/File:Hypercube.svg). We can use ordinary Markdown image syntax: ![](https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Hypercube.svg/500px-Hypercube.svg.png) Or, we can use Smartdowns `/media` syntax and amend it with styling: |hypercube|pulse|clockwise|cclockwise|bluegreen| |:---:|:---:|:---:|:---:|:---:| |![](/media/hypercube)|![](/media/hypercube/pulse)|![](/media/hypercube/clockwise)|![](/media/hypercube/cclockwise)|![](/media/hypercube/bluegreen)| |![](/media/StalactiteStalagmite)|![](/media/StalactiteStalagmite/pulse)|![](/media/StalactiteStalagmite/clockwise)|![](/media/StalactiteStalagmite/cclockwise)|![](/media/StalactiteStalagmite/bluegreen)| --- [Back to Home](:@WelcomeToSmartdown) # Math --- #### Math Example By using MathJax, we can display all sorts of notation. We can do inline math: $E = mc^2$ Or we can do block math: $$ A \longrightarrow B $$ $$ \begin{array}{c|lcr} n &amp; \text{Left} &amp; \text{Center} &amp; \text{Right} \\ \hline 1 &amp; 0.24 &amp; 1 &amp; 125 \\ 2 &amp; -1 &amp; 189 &amp; -8 \\ 3 &amp; -20 &amp; 2000 &amp; 1+10i \end{array} $$ And even diagrams via *xyjax*: $$ \begin{xy} 0;: (1,1);p+/v a(18) 5.5em/**@{-}, (1,3);p+/v a(18) 5.5em/**@2{-}, (1,5);p+/v a(18) 5.5em/**@3{-}, (1,9);p+/v a(18) 5.5em/**@{.}, (1,11);p+/v a(18) 5.5em/**@2{.}, (1,13);p+/v a(18) 5.5em/**@3{..}, \end{xy} $$ #### MathJax $\LaTeX$ vs AsciiMath Syntax Recently, I learned that MathJax had an alternative syntax, [AsciiMath](http://asciimath.org) that is simpler for many purposes. Smartdown has enabled this feature, although we are currently using `@` as the delimiter instead of \` or `$`. ##### $\LaTeX$ Syntax Currently, Smartdown uses LaTeX-style math syntax, so the following formula: $$ \sum_{i=1}^{n} i^3=\left(\frac{n(n+1)}{2}\right)^2 $$ is expressed as: ``` $$ \sum_{i=1}^{n} i^3=\left(\frac{n(n+1)}{2}\right)^2 $$ ``` ##### AsciiMath Syntax The above formula is expressed in AsciiMath (using `@` as delimiters) as: ``` @sum_(i=1)^n i^3=((n(n+1))/2)^2@ ``` which Smartdown now renders as: @sum_(i=1)^n i^3=((n(n+1))/2)^2@ Note that AsciiMath via MathJax does not support *display-mode* equations, but centering can be achieved via Markdown table syntax: |`@sum_(i=1)^n i^3=((n(n+1))/2)^2@`| |:---:| |@sum_(i=1)^n i^3=((n(n+1))/2)^2@| --- [Back to Home](:@WelcomeToSmartdown) # Mermaid --- [Mermaid.js](https://mermaid-js.github.io/mermaid/#/) is a Javascript library that uses textual descriptions of diagrams and then renders these dynamically in the browser. From their site: &gt; mermaid is a Javascript based diagramming and charting tool. It generates diagrams flowcharts and more, using markdown-inspired text for ease and speed. Smartdown has embraced Mermaid and makes it easy to embed Mermaid diagrams within prose. ```mermaid/playable %% Example of sequence diagram graph LR id1((This is the text in the circle)); ``` --- ```mermaid/playable graph TB subgraph one a1--&gt;a2{Rhombus} end subgraph two b1--&gt;b2[This is a really long label.] end subgraph three c1--&gt;c2 end c1--&gt;a2 ``` We can do inline math: $E = mc^2$ --- [Back to Home](:@WelcomeToSmartdown) # Cells --- ## Cells - Reactive Spreadsheet Cells Smartdown uses ordinary Markdown link syntax to specify a cell *label* and *body*, where the *label* is specified in the link label, and the *body* is specified in the link's URL. For example, the following declares an *output* cell that displays the value of the `FOO` variable: ```markdown [The value of FOO is](:!FOO) ``` When a non-empty label is present, the cell will be formatted with its label on its own line. When no label is present, then the cell will be formatted inline. ### Cells with labels get their own line - [What is your name?](:?NAME) - [Glad to meet you](:!NAME) - [What is your name again?](:?NAME) - [Really glad to meet you](:!NAME) - [Are you human?](:XHUMAN) - [Humanity](:!HUMAN) ### Cells with no labels are inlined What is your name? [](:?NAME) So glad to meet you [](:!NAME). What is your name again? [](:?NAME) Really glad to meet you [](:!NAME). Are you human? [](:XHUMAN) Your Humanity is [](:!HUMAN). ### External Data Query *The Smartdown code below is a work in progress and the syntax used is experimental and in flux.* One of the goals of Smartdown is to enable simple text files to express rich interactive experiences that involve live data. Ideally, web-based services would already exist to serve the data-hunger of Smartdown. In this example, we are exploring the use of [Wikidata](https://www.wikidata.org) as a data source. Limitations of the current tech include: - The [Falcor](https://netflix.github.io/falcor/) syntax is a hack and is not using the Falcor library. - The current example emphasizes the extraction of thumbnail images from Wikidata and does not display or utilize the full set of metadata returned. [WHAT do you want to look up?](:?WHAT) Examples: - Earth - Penguin - Uranium - Oregon - Abraham Lincoln - [`WHAT`](:=LOOKUP=/wikidata[&quot;`WHAT`&quot;]) - [`WHAT` thumbnails](:=LOOKUP=/wikidataThumbs[&quot;`WHAT`&quot;]) - [`WHAT` images](:=LOOKUP=/wikidataImages[&quot;`WHAT`&quot;]) - [Albert Einstein|Marie Curie|Max Plank (Slash, Thumbnails)](:=LOOKUP=/wikidataThumbs/Albert%20Einstein|Marie%20Curie|Max%20Plank) - [Albert Einstein (Falcor, Thumbnails)](:=LOOKUP=/wikidataThumbs[&quot;Albert%20Einstein&quot;]) - [Albert Einstein|Marie Curie|Max Plank (Slash, Original)](:=LOOKUP=/wikidataImages/Albert%20Einstein|Marie%20Curie|Max%20Plank) - [Albert Einstein (Falcor, Original)](:=LOOKUP=/wikidataImages[&quot;Albert%20Einstein&quot;]) - [Lookup result](:!LOOKUP) --- [](:!LOOKUP) --- [Back to Home](:@WelcomeToSmartdown) # P5JS --- ## P5JS Experiments Here's a small set of what is possible with Smartdown and [p5.js](https://p5js.org). More examples can be seen at [smartdown.site](https://smartdown.site). The Ellipse example below is an `/autoplay` playable. You can click `Stop` to see its source. The subsequent `Tickle` playable is not `/autoplay`, so you will click `Play` to play it. ### P5JS Ellipse Example ```p5js /playable/autoplay p5.setup = function() { }; p5.draw = function() { p5.ellipse(50, 50, 80, 80); }; ``` ##### Tickle example with Instance mode Syntax ```p5js/playable var message = &quot;tickle&quot;, font, bounds, // holds x, y, w, h of the text's bounding box fontsize = 60, x, y; // x and y coordinates of the text p5.preload = function preload() { font = p5.loadFont('https://unpkg.com/smartdown-gallery/resources/SourceSansPro-Regular.otf'); }; p5.setup = function setup() { p5.createCanvas(410, 250); // set up the font p5.textFont(font); p5.textSize(fontsize); // get the width and height of the text so we can center it initially bounds = font.textBounds(message, 0, 0, fontsize); x = p5.width / 2 - bounds.w / 2; y = p5.height / 2 - bounds.h / 2; }; p5.draw = function draw() { p5.background(204, 120); // write the text in black and get its bounding box p5.fill(0); p5.text(message, x, y); bounds = font.textBounds(message,x,y,fontsize); // check if the mouse is inside the bounding box and tickle if so if ( p5.mouseX &gt;= bounds.x &amp;&amp; p5.mouseX = bounds.y &amp;&amp; p5.mouseY &lt;= bounds.y + bounds.h) { x += p5.random(-5, 5); y += p5.random(-5, 5); } }; ``` --- [Back to Home](:@WelcomeToSmartdown)</summary></entry><entry><title type="html">Plain Old Markdown</title><link href="/blog-kit-test-target/sparrow/posts/PlainOldMarkdown/" rel="alternate" type="text/html" title="Plain Old Markdown" /><published>2020-02-03T00:00:00-08:00</published><updated>2020-02-03T00:00:00-08:00</updated><id>/blog-kit-test-target/sparrow/posts/PlainOldMarkdown</id><content type="html" xml:base="/blog-kit-test-target/sparrow/posts/PlainOldMarkdown/">## GitHub-Flavored Markdown with Kramdown
+
+BlogKit supports the standard [GitHub-flavored Markdown](https://help.github.com/articles/about-writing-and-formatting-on-github/) provided by GitHub Pages. Specifically, GitHub Pages uses the [kramdown](https://kramdown.gettalong.org/quickref.html) processor to convert Markdown into HTML within the GitHub Pages server.
+
+### Markdown Examples
+
+Here are some simple examples of Markdown.
+
+#### Styles
+
+It's very easy to make some words **bold** and other words *italic* with Markdown. You can even [link to Google!](http://google.com)
+
+*This text will be italic*
+_This will also be italic_
+
+**This text will be bold**
+__This will also be bold__
+
+_You **can** combine them_
+
+#### Tables
+
+First Header | Second Header
+------------ | -------------
+Content from cell 1 | Content from cell 2
+Content in the first column | Content in the second column
+
+---
+
+*Post Source: [`/posts/PlainOldMarkdown.md`](/posts/PlainOldMarkdown.md#-blank)*</content><author><name></name></author><category term="markdown" /><summary type="html">## GitHub-Flavored Markdown with Kramdown BlogKit supports the standard [GitHub-flavored Markdown](https://help.github.com/articles/about-writing-and-formatting-on-github/) provided by GitHub Pages. Specifically, GitHub Pages uses the [kramdown](https://kramdown.gettalong.org/quickref.html) processor to convert Markdown into HTML within the GitHub Pages server. ### Markdown Examples Here are some simple examples of Markdown. #### Styles It's very easy to make some words **bold** and other words *italic* with Markdown. You can even [link to Google!](http://google.com) *This text will be italic* _This will also be italic_ **This text will be bold** __This will also be bold__ _You **can** combine them_ #### Tables First Header | Second Header ------------ | ------------- Content from cell 1 | Content from cell 2 Content in the first column | Content in the second column --- *Post Source: [`/posts/PlainOldMarkdown.md`](/posts/PlainOldMarkdown.md#-blank)*</summary></entry><entry><title type="html">Welcome to My Smartdown-enabled Blog</title><link href="/blog-kit-test-target/sparrow/posts/WelcomeToMyBlog/" rel="alternate" type="text/html" title="Welcome to My Smartdown-enabled Blog" /><published>2020-02-02T00:00:00-08:00</published><updated>2020-02-02T00:00:00-08:00</updated><id>/blog-kit-test-target/sparrow/posts/WelcomeToMyBlog</id><content type="html" xml:base="/blog-kit-test-target/sparrow/posts/WelcomeToMyBlog/">## Welcome to My Smartdown-enabled Blog
+
+This is the first post in this example Blog, created with [smartdown/blog-kit](https://github.com/smartdown/blog-kit/).
+
+### Testing Liquid-immunity via `raw`
+
+
+
+- Test of `{{ site.baseurl }}`: {{ site.baseurl }}
+- Test of `{{ page.path }}`: {{ page.path }}
+
+
+
+### Tunnel Links
+
+[Smartdown Tour](:@/posts/ABriefTourOfSmartdown.md)
+[Welcome To My Blog](:@/posts/WelcomeToMyBlog.md)
+
+### Lorem Ipsum
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin libero nunc consequat interdum varius sit amet. Placerat vestibulum lectus mauris ultrices eros in cursus turpis. Vel pretium lectus quam id. Morbi quis commodo odio aenean sed adipiscing diam donec. Non tellus orci ac auctor. Nisl rhoncus mattis rhoncus urna neque viverra justo. Amet est placerat in egestas erat. Risus at ultrices mi tempus imperdiet nulla. Sit amet dictum sit amet. Mi bibendum neque egestas congue. Ut venenatis tellus in metus vulputate eu.
+
+Sed tempus urna et pharetra pharetra massa massa ultricies mi. Potenti nullam ac tortor vitae purus faucibus ornare suspendisse. Quis commodo odio aenean sed adipiscing diam donec adipiscing. Faucibus purus in massa tempor nec feugiat nisl pretium fusce. Amet purus gravida quis blandit turpis cursus in. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Aliquam sem et tortor consequat id porta nibh venenatis cras. A scelerisque purus semper eget duis. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Dolor sit amet consectetur adipiscing elit ut aliquam. Volutpat blandit aliquam etiam erat velit. Neque aliquam vestibulum morbi blandit.
+
+
+### Math Ipsum via [Math Ipsum](http://makesum.com/math#9581)
+
+Coplanar exponential first outside inside last tangent, output trapezoid imaginary integrate foot common multiples this process. Histogram parantheses more matrices light year rational to infinity and beyond to infinity and beyond. Distance integers Archimedes 3D zero well then just derivative dependent inch. Zaxis chord mean i Archimedes algorithm solve the equation. Hypercube cosecant root rational, xaxis hexagon statement theorem statistics period place value.
+
+Input Going to create SSS quartic hypercube warp speed arcsine. Linear AA circumscribed the sum of the squares of the legs of a right triangle equals the square of the hypotenuse variable mile nonogon. Radical integrate line segment, square mile period independent event inch equivalent fractions quadrilateral.
+
+---
+
+*Post Source: [`/posts/WelcomeToMyBlog.md`](/posts/WelcomeToMyBlog.md#-blank)*</content><author><name></name></author><category term="welcome" /><category term="smartdown" /><summary type="html">## Welcome to My Smartdown-enabled Blog This is the first post in this example Blog, created with [smartdown/blog-kit](https://github.com/smartdown/blog-kit/). ### Testing Liquid-immunity via `raw` - Test of `{{ site.baseurl }}`: {{ site.baseurl }} - Test of `{{ page.path }}`: {{ page.path }} ### Tunnel Links [Smartdown Tour](:@/posts/ABriefTourOfSmartdown.md) [Welcome To My Blog](:@/posts/WelcomeToMyBlog.md) ### Lorem Ipsum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin libero nunc consequat interdum varius sit amet. Placerat vestibulum lectus mauris ultrices eros in cursus turpis. Vel pretium lectus quam id. Morbi quis commodo odio aenean sed adipiscing diam donec. Non tellus orci ac auctor. Nisl rhoncus mattis rhoncus urna neque viverra justo. Amet est placerat in egestas erat. Risus at ultrices mi tempus imperdiet nulla. Sit amet dictum sit amet. Mi bibendum neque egestas congue. Ut venenatis tellus in metus vulputate eu. Sed tempus urna et pharetra pharetra massa massa ultricies mi. Potenti nullam ac tortor vitae purus faucibus ornare suspendisse. Quis commodo odio aenean sed adipiscing diam donec adipiscing. Faucibus purus in massa tempor nec feugiat nisl pretium fusce. Amet purus gravida quis blandit turpis cursus in. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Aliquam sem et tortor consequat id porta nibh venenatis cras. A scelerisque purus semper eget duis. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Dolor sit amet consectetur adipiscing elit ut aliquam. Volutpat blandit aliquam etiam erat velit. Neque aliquam vestibulum morbi blandit. ### Math Ipsum via [Math Ipsum](http://makesum.com/math#9581) Coplanar exponential first outside inside last tangent, output trapezoid imaginary integrate foot common multiples this process. Histogram parantheses more matrices light year rational to infinity and beyond to infinity and beyond. Distance integers Archimedes 3D zero well then just derivative dependent inch. Zaxis chord mean i Archimedes algorithm solve the equation. Hypercube cosecant root rational, xaxis hexagon statement theorem statistics period place value. Input Going to create SSS quartic hypercube warp speed arcsine. Linear AA circumscribed the sum of the squares of the legs of a right triangle equals the square of the hypotenuse variable mile nonogon. Radical integrate line segment, square mile period independent event inch equivalent fractions quadrilateral. --- *Post Source: [`/posts/WelcomeToMyBlog.md`](/posts/WelcomeToMyBlog.md#-blank)*</summary></entry><entry><title type="html">How to use this theme</title><link href="/blog-kit-test-target/sparrow/posts/how-to-use-this-theme/" rel="alternate" type="text/html" title="How to use this theme" /><published>2017-04-12T00:00:00-07:00</published><updated>2017-04-12T00:00:00-07:00</updated><id>/blog-kit-test-target/sparrow/posts/how-to-use-this-theme</id><content type="html" xml:base="/blog-kit-test-target/sparrow/posts/how-to-use-this-theme/">&lt;p&gt;Just fork this repo and replace the posts with your own. Also rename the sample poetry collection to replace it with your own collection, or just delete it if you don’t need to use collections. The example is poetry, but you can easily revamp this into essays, short stories, portfolio, or whatever your creative work is.&lt;/p&gt;
+
+&lt;p&gt;OR you can also install this theme as a theme gem. To do that, add to your Gemfile:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;sparrow-jekyll-theme&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And add this line site’s &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;theme&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;sparrow-jekyll-theme&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And then do &lt;code class=&quot;highlighter-rouge&quot;&gt;bundle install&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;To run your site locally, do &lt;code class=&quot;highlighter-rouge&quot;&gt;bundle exec jekyll serve&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;For customization, see below.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#general-configuration&quot;&gt;General configuration&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#disqus&quot;&gt;Disqus&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#google-analytics&quot;&gt;Google analytics&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#collections&quot;&gt;Collections&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#pagination&quot;&gt;Pagination&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#navigation&quot;&gt;Navigation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#front-matter-defaults&quot;&gt;Front matter defaults&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#other&quot;&gt;Other&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;general-configuration&quot;&gt;General configuration&lt;/h3&gt;
+
+&lt;p&gt;Customize these values in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;title                    &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Sparrow&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;title_separator          &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;-&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;description              &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;clean&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;minimal&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;theme&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;writers.&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;favicon                  &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/assets/images/bird.png&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;avatar                   &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/assets/images/bird.png&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;url                      &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;https://theconfused.me&quot;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# the base hostname &amp;amp; protocol for your site e.g. &quot;https://mmistakes.github.io&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;baseurl                  &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/sparrow&quot;&lt;/span&gt; 
+
+&lt;span class=&quot;c1&quot;&gt;# Site Author&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;name                   &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Lingyi&quot;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# appears in the footer and atom feed&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;disqus&quot;&gt;Disqus&lt;/h3&gt;
+
+&lt;p&gt;To activate Disqus, fill in your disqus shortname:&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;comments                 &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# set it to false to disable comments&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;disqus&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;shortname              &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;your_shortname&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;google-analytics&quot;&gt;Google analytics&lt;/h3&gt;
+
+&lt;p&gt;Enable google analytics by filling in your tracking ID:&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;analytics&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;google&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;tracking_id          &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# add your google tracking id here&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;collections&quot;&gt;Collections&lt;/h3&gt;
+
+&lt;p&gt;If you are using collections, be sure to replace this with your collection name:&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;collections&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;poetry&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;permalink&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/:collection/:title/&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;pagination&quot;&gt;Pagination&lt;/h3&gt;
+
+&lt;p&gt;Currently, pagination is set to a the blog page. Unfortunately Jekyll does not yet support pagination on multiple pages.&lt;/p&gt;
+
+&lt;p&gt;If you want to paginate on a different page, simply change the &lt;code class=&quot;highlighter-rouge&quot;&gt;paginate_path&lt;/code&gt; value in the config file and create the relevant page.&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;paginate&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# amount of posts to show&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;paginate_path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/blog/page:num/&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;timezone&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# http://en.wikipedia.org/wiki/List_of_tz_database_time_zones&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;navigation&quot;&gt;Navigation&lt;/h3&gt;
+
+&lt;p&gt;You can change the navigation links in &lt;code class=&quot;highlighter-rouge&quot;&gt;_data/navigation.yml&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;front-matter-defaults&quot;&gt;Front matter defaults&lt;/h3&gt;
+
+&lt;p&gt;At the bottom of the config file, you can also set &lt;a href=&quot;https://jekyllrb.com/docs/configuration/#front-matter-defaults&quot;&gt;front matter defaults&lt;/a&gt; so that you don’t have to repeat the same front matter for every post. This is an example:&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Front matter defaults&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;defaults&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# _pages&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;pages&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;page&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;comments&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;false&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# _posts&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;posts&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;post&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;comments&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;share&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# _poetry&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;poetry&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;post&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;share&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;false&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;other&quot;&gt;Other&lt;/h3&gt;
+
+&lt;p&gt;To enhance SEO, you can add your twitter username to &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;You can also add a image path for the &lt;code class=&quot;highlighter-rouge&quot;&gt;og_image&lt;/code&gt; value in the config file, for a default open graph sharing image. This value can be overridden in individual posts.&lt;/p&gt;
+
+&lt;p&gt;There are also helper classes for ease of inserting image and their captions, adapted from the &lt;a href=&quot;https://github.com/mmistakes/minimal-mistakes&quot;&gt;Minimal Mistakes theme by Michael Rose&lt;/a&gt;. You can find a &lt;a href=&quot;https://theconfused.me/sparrow/blog/post-with-image/&quot;&gt;sample post with images&lt;/a&gt; on the &lt;a href=&quot;https://theconfused.me/sparrow&quot;&gt;demo site&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The color schemes and fonts can also be customized through scss, by editing the relevant variable in &lt;code class=&quot;highlighter-rouge&quot;&gt;_variables.scss&lt;/code&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">Just fork this repo and replace the posts with your own. Also rename the sample poetry collection to replace it with your own collection, or just delete it if you don’t need to use collections. The example is poetry, but you can easily revamp this into essays, short stories, portfolio, or whatever your creative work is. OR you can also install this theme as a theme gem. To do that, add to your Gemfile: gem &quot;sparrow-jekyll-theme&quot; And add this line site’s _config.yml: theme: sparrow-jekyll-theme And then do bundle install. To run your site locally, do bundle exec jekyll serve. For customization, see below. General configuration Disqus Google analytics Collections Pagination Navigation Front matter defaults Other General configuration Customize these values in the _config.yml file: title : &quot;Sparrow&quot; title_separator : &quot;-&quot; description : &quot;A clean and minimal theme for writers.&quot; favicon : &quot;/assets/images/bird.png&quot; avatar : &quot;/assets/images/bird.png&quot; url : &quot;https://theconfused.me&quot; # the base hostname &amp;amp; protocol for your site e.g. &quot;https://mmistakes.github.io&quot; baseurl : &quot;/sparrow&quot; # Site Author author: name : &quot;Lingyi&quot; # appears in the footer and atom feed Disqus To activate Disqus, fill in your disqus shortname: comments : true # set it to false to disable comments disqus: shortname : your_shortname Google analytics Enable google analytics by filling in your tracking ID: analytics: google: tracking_id : # add your google tracking id here Collections If you are using collections, be sure to replace this with your collection name: collections: poetry: output: true permalink: /:collection/:title/ Pagination Currently, pagination is set to a the blog page. Unfortunately Jekyll does not yet support pagination on multiple pages. If you want to paginate on a different page, simply change the paginate_path value in the config file and create the relevant page. paginate: 5 # amount of posts to show paginate_path: &quot;/blog/page:num/&quot; timezone: # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones Navigation You can change the navigation links in _data/navigation.yml. Front matter defaults At the bottom of the config file, you can also set front matter defaults so that you don’t have to repeat the same front matter for every post. This is an example: # Front matter defaults defaults: # _pages - scope: path: &quot;&quot; type: pages values: layout: page comments: false # _posts - scope: path: &quot;&quot; type: posts values: layout: post comments: true share: true # _poetry - scope: path: &quot;&quot; type: poetry values: layout: post share: false Other To enhance SEO, you can add your twitter username to _config.yml. You can also add a image path for the og_image value in the config file, for a default open graph sharing image. This value can be overridden in individual posts. There are also helper classes for ease of inserting image and their captions, adapted from the Minimal Mistakes theme by Michael Rose. You can find a sample post with images on the demo site. The color schemes and fonts can also be customized through scss, by editing the relevant variable in _variables.scss.</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="/blog-kit-test-target/sparrow/posts/welcome-to-jekyll/" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2017-04-11T00:00:00-07:00</published><updated>2017-04-11T00:00:00-07:00</updated><id>/blog-kit-test-target/sparrow/posts/welcome-to-jekyll</id><content type="html" xml:base="/blog-kit-test-target/sparrow/posts/welcome-to-jekyll/">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory - edit this post and re-build (or run with the &lt;code class=&quot;highlighter-rouge&quot;&gt;-w&lt;/code&gt; switch) to see your changes!
+To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention: YYYY-MM-DD-name-of-post.ext.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/mojombo/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">You’ll find this post in your _posts directory - edit this post and re-build (or run with the -w switch) to see your changes! To add new posts, simply add a file in the _posts directory that follows the convention: YYYY-MM-DD-name-of-post.ext. Jekyll also offers powerful support for code snippets: def print_hi(name) puts &quot;Hi, #{name}&quot; end print_hi('Tom') #=&amp;gt; prints 'Hi, Tom' to STDOUT. Check out the Jekyll docs for more info on how to get the most out of Jekyll. File all bugs/feature requests at Jekyll’s GitHub repo.</summary></entry><entry><title type="html">Post with image</title><link href="/blog-kit-test-target/sparrow/posts/post-with-image/" rel="alternate" type="text/html" title="Post with image" /><published>2017-04-10T00:00:00-07:00</published><updated>2017-04-10T00:00:00-07:00</updated><id>/blog-kit-test-target/sparrow/posts/post-with-image</id><content type="html" xml:base="/blog-kit-test-target/sparrow/posts/post-with-image/">&lt;p&gt;Jean shorts raw denim Vice normcore, art party High Life PBR skateboard stumptown vinyl kitsch. Fingerstache four loko meh 8-bit, tousled banh mi tilde forage Schlitz dreamcatcher twee 3 wolf moon. Chambray asymmetrical paleo salvia, sartorial umami four loko master cleanse drinking vinegar brunch.&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/blog-kit-test-target/sparrow/assets/images/unsplash1.jpg&quot; alt=&quot;this is a placeholder image&quot; /&gt;
+  
+    &lt;figcaption&gt;This is a figure caption.
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Slow-carb four dollar toast Helvetica pop-up. Kale chips next level literally trust fund Pitchfork. Jean shorts Pinterest beard, farm-to-table irony craft beer swag tofu 8-bit Banksy. Quinoa forage fanny pack, pug hashtag Echo Park heirloom Schlitz tote bag artisan Neutra mumblecore 90’s shabby chic raw denim.&lt;/p&gt;
+
+&lt;figure class=&quot;half&quot;&gt;
+    &lt;img src=&quot;/blog-kit-test-target/sparrow/assets/images/unsplash3.jpg&quot; /&gt;
+    &lt;img src=&quot;/blog-kit-test-target/sparrow/assets/images/unsplash2.jpg&quot; /&gt;
+    &lt;figcaption&gt;Caption describing these two images.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;third&quot;&gt;
+    &lt;img src=&quot;/blog-kit-test-target/sparrow/assets/images/unsplash3.jpg&quot; /&gt;
+    &lt;img src=&quot;/blog-kit-test-target/sparrow/assets/images/unsplash2.jpg&quot; /&gt;
+    &lt;img src=&quot;/blog-kit-test-target/sparrow/assets/images/unsplash1.jpg&quot; /&gt;
+    &lt;figcaption&gt;Caption describing these three images.&lt;/figcaption&gt;
+&lt;/figure&gt;</content><author><name></name></author><summary type="html">Jean shorts raw denim Vice normcore, art party High Life PBR skateboard stumptown vinyl kitsch. Fingerstache four loko meh 8-bit, tousled banh mi tilde forage Schlitz dreamcatcher twee 3 wolf moon. Chambray asymmetrical paleo salvia, sartorial umami four loko master cleanse drinking vinegar brunch. This is a figure caption. Slow-carb four dollar toast Helvetica pop-up. Kale chips next level literally trust fund Pitchfork. Jean shorts Pinterest beard, farm-to-table irony craft beer swag tofu 8-bit Banksy. Quinoa forage fanny pack, pug hashtag Echo Park heirloom Schlitz tote bag artisan Neutra mumblecore 90’s shabby chic raw denim. Caption describing these two images. Caption describing these three images.</summary></entry><entry><title type="html">Post with lots of text</title><link href="/blog-kit-test-target/sparrow/posts/post-with-lots-of-text/" rel="alternate" type="text/html" title="Post with lots of text" /><published>2017-04-10T00:00:00-07:00</published><updated>2017-04-10T00:00:00-07:00</updated><id>/blog-kit-test-target/sparrow/posts/post-with-lots-of-text</id><content type="html" xml:base="/blog-kit-test-target/sparrow/posts/post-with-lots-of-text/">&lt;p&gt;IPhone roof party voluptate chia man bun truffaut. You probably haven’t heard of them salvia consequat schlitz, pork belly activated charcoal yuccie ad do letterpress mlkshk church-key pickled chambray bushwick. Neutra farm-to-table ugh, meggings gluten-free swag meh hexagon culpa fixie. Quinoa truffaut proident twee, irure non viral waistcoat direct trade cray. Kickstarter truffaut chambray PBR&amp;amp;B, brunch fugiat jianbing literally neutra iceland. Photo booth fugiat tofu, seitan officia tousled put a bird on it laboris pariatur hammock paleo kickstarter. Cray cupidatat meditation, sint plaid brooklyn esse try-hard direct trade narwhal seitan skateboard YOLO.&lt;/p&gt;
+
+&lt;p&gt;Cronut marfa YOLO commodo tote bag banjo knausgaard. Small batch echo park typewriter in. Et blue bottle mustache nisi, banjo fingerstache microdosing selfies tilde shabby chic fanny pack delectus dreamcatcher edison bulb tbh. Disrupt nihil waistcoat, gastropub iPhone est taxidermy snackwave hella fixie ramps seitan offal synth anim. Activated charcoal post-ironic listicle pour-over craft beer pariatur, drinking vinegar vape consequat typewriter franzen umami ut selvage. Organic fashion axe hella veniam chartreuse. Gentrify chillwave vinyl bitters, photo booth tattooed mollit la croix dolor.&lt;/p&gt;
+
+&lt;p&gt;Helvetica sriracha hot chicken non heirloom shoreditch hexagon taxidermy, food truck lumbersexual sartorial succulents chia esse. Banh mi direct trade street art, thundercats qui leggings reprehenderit master cleanse labore meggings tbh jianbing. Pariatur deserunt lyft, four dollar toast laborum aliqua veniam iceland iPhone. Bitters glossier odio humblebrag, fixie gluten-free nihil id godard consectetur typewriter. Ad biodiesel whatever, keffiyeh portland do vinyl heirloom post-ironic offal. Velit selvage viral, veniam shoreditch chillwave vinyl taxidermy hell of chicharrones. Trust fund iPhone lyft hell of.&lt;/p&gt;
+
+&lt;p&gt;Sapiente cronut ullamco, hashtag culpa thundercats pop-up williamsburg pour-over small batch brunch XOXO retro celiac. Laboris chia biodiesel you probably haven’t heard of them. Craft beer anim succulents, bitters vegan irure hashtag. Fashion axe organic pug readymade. Odio kale chips la croix godard activated charcoal. Williamsburg odio succulents lo-fi, VHS labore heirloom consectetur kale chips health goth cardigan eiusmod culpa. Tilde fashion axe four loko four dollar toast, tote bag etsy normcore freegan edison bulb forage pork belly aliquip.&lt;/p&gt;</content><author><name></name></author><summary type="html">IPhone roof party voluptate chia man bun truffaut. You probably haven’t heard of them salvia consequat schlitz, pork belly activated charcoal yuccie ad do letterpress mlkshk church-key pickled chambray bushwick. Neutra farm-to-table ugh, meggings gluten-free swag meh hexagon culpa fixie. Quinoa truffaut proident twee, irure non viral waistcoat direct trade cray. Kickstarter truffaut chambray PBR&amp;amp;B, brunch fugiat jianbing literally neutra iceland. Photo booth fugiat tofu, seitan officia tousled put a bird on it laboris pariatur hammock paleo kickstarter. Cray cupidatat meditation, sint plaid brooklyn esse try-hard direct trade narwhal seitan skateboard YOLO. Cronut marfa YOLO commodo tote bag banjo knausgaard. Small batch echo park typewriter in. Et blue bottle mustache nisi, banjo fingerstache microdosing selfies tilde shabby chic fanny pack delectus dreamcatcher edison bulb tbh. Disrupt nihil waistcoat, gastropub iPhone est taxidermy snackwave hella fixie ramps seitan offal synth anim. Activated charcoal post-ironic listicle pour-over craft beer pariatur, drinking vinegar vape consequat typewriter franzen umami ut selvage. Organic fashion axe hella veniam chartreuse. Gentrify chillwave vinyl bitters, photo booth tattooed mollit la croix dolor. Helvetica sriracha hot chicken non heirloom shoreditch hexagon taxidermy, food truck lumbersexual sartorial succulents chia esse. Banh mi direct trade street art, thundercats qui leggings reprehenderit master cleanse labore meggings tbh jianbing. Pariatur deserunt lyft, four dollar toast laborum aliqua veniam iceland iPhone. Bitters glossier odio humblebrag, fixie gluten-free nihil id godard consectetur typewriter. Ad biodiesel whatever, keffiyeh portland do vinyl heirloom post-ironic offal. Velit selvage viral, veniam shoreditch chillwave vinyl taxidermy hell of chicharrones. Trust fund iPhone lyft hell of. Sapiente cronut ullamco, hashtag culpa thundercats pop-up williamsburg pour-over small batch brunch XOXO retro celiac. Laboris chia biodiesel you probably haven’t heard of them. Craft beer anim succulents, bitters vegan irure hashtag. Fashion axe organic pug readymade. Odio kale chips la croix godard activated charcoal. Williamsburg odio succulents lo-fi, VHS labore heirloom consectetur kale chips health goth cardigan eiusmod culpa. Tilde fashion axe four loko four dollar toast, tote bag etsy normcore freegan edison bulb forage pork belly aliquip.</summary></entry><entry><title type="html">Typography Elements</title><link href="/blog-kit-test-target/sparrow/posts/typography-elements/" rel="alternate" type="text/html" title="Typography Elements" /><published>2016-10-20T00:00:00-07:00</published><updated>2016-10-20T00:00:00-07:00</updated><id>/blog-kit-test-target/sparrow/posts/typography-elements</id><content type="html" xml:base="/blog-kit-test-target/sparrow/posts/typography-elements/">&lt;h1 id=&quot;heading-1&quot;&gt;Heading 1&lt;/h1&gt;
+&lt;h2 id=&quot;heading-2&quot;&gt;Heading 2&lt;/h2&gt;
+&lt;h3 id=&quot;heading-3&quot;&gt;Heading 3&lt;/h3&gt;
+&lt;h4 id=&quot;heading-4&quot;&gt;Heading 4&lt;/h4&gt;
+&lt;h5 id=&quot;heading-5&quot;&gt;Heading 5&lt;/h5&gt;
+&lt;h6 id=&quot;heading-6&quot;&gt;Heading 6&lt;/h6&gt;
+
+&lt;p&gt;This is a divider:&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;This is a blockquote:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Every one of us is, in the cosmic perspective, precious. If a human disagrees with you, let him live. In a hundred billion galaxies, you will not find another.
+&lt;cite&gt;Carl Sagan, Cosmos&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content><author><name></name></author><summary type="html">Heading 1 Heading 2 Heading 3 Heading 4 Heading 5 Heading 6 This is a divider: This is a blockquote: Every one of us is, in the cosmic perspective, precious. If a human disagrees with you, let him live. In a hundred billion galaxies, you will not find another. Carl Sagan, Cosmos</summary></entry><entry><title type="html">More filler posts to show pagination</title><link href="/blog-kit-test-target/sparrow/posts/filler-post-1/" rel="alternate" type="text/html" title="More filler posts to show pagination" /><published>2015-10-12T00:00:00-07:00</published><updated>2015-10-12T00:00:00-07:00</updated><id>/blog-kit-test-target/sparrow/posts/filler-post-1</id><content type="html" xml:base="/blog-kit-test-target/sparrow/posts/filler-post-1/">&lt;p&gt;Butcher before they sold out locavore, fixie twee trust fund coloring book cliche semiotics church-key keytar photo booth. Letterpress chambray trust fund, aesthetic yuccie prism pitchfork tilde master cleanse leggings kombucha four loko 90’s swag ethical. Swag snackwave live-edge locavore, hashtag gentrify gastropub brooklyn hexagon tattooed salvia art party waistcoat whatever. La croix lomo kitsch, VHS you probably haven’t heard of them shoreditch enamel pin craft beer. Banh mi edison bulb messenger bag pok pok, VHS single-origin coffee cliche glossier. Fam whatever waistcoat direct trade. Occupy four loko sartorial small batch.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Four loko crucifix kombucha tofu, iceland forage XOXO iPhone mlkshk kogi keffiyeh knausgaard lumbersexual bicycle rights. Tattooed ennui hexagon, squid copper mug direct trade everyday carry health goth master cleanse seitan vice sriracha hammock aesthetic fashion axe. Mixtape hoodie gentrify lyft. Post-ironic keffiyeh ethical poke. Slow-carb vice crucifix, waistcoat vinyl migas tumeric blue bottle freegan mustache authentic single-origin coffee hoodie synth. Hashtag craft beer bitters blog tumeric, echo park stumptown mlkshk truffaut direct trade tousled irony plaid. Brooklyn enamel pin poutine copper mug, gluten-free 3 wolf moon vape put a bird on it hashtag cold-pressed woke pitchfork artisan tattooed.&lt;/p&gt;
+
+&lt;p&gt;Tousled gluten-free chillwave, chia wolf trust fund semiotics single-origin coffee raclette farm-to-table iceland dreamcatcher cliche. Chia kombucha tbh franzen hell of. Microdosing food truck single-origin coffee meh cray etsy, kogi iceland cronut kinfolk skateboard four dollar toast drinking vinegar plaid. Fam man braid next level, vice marfa hoodie pickled godard flannel. Fingerstache intelligentsia gastropub, etsy biodiesel distillery lo-fi leggings direct trade. Vaporware cliche aesthetic banjo, la croix kale chips actually narwhal post-ironic thundercats PBR&amp;amp;B you probably haven’t heard of them. Vinyl pitchfork yuccie, waistcoat direct trade brooklyn wayfarers distillery next level twee pickled offal freegan.&lt;/p&gt;</content><author><name></name></author><summary type="html">Butcher before they sold out locavore, fixie twee trust fund coloring book cliche semiotics church-key keytar photo booth. Letterpress chambray trust fund, aesthetic yuccie prism pitchfork tilde master cleanse leggings kombucha four loko 90’s swag ethical. Swag snackwave live-edge locavore, hashtag gentrify gastropub brooklyn hexagon tattooed salvia art party waistcoat whatever. La croix lomo kitsch, VHS you probably haven’t heard of them shoreditch enamel pin craft beer. Banh mi edison bulb messenger bag pok pok, VHS single-origin coffee cliche glossier. Fam whatever waistcoat direct trade. Occupy four loko sartorial small batch. Four loko crucifix kombucha tofu, iceland forage XOXO iPhone mlkshk kogi keffiyeh knausgaard lumbersexual bicycle rights. Tattooed ennui hexagon, squid copper mug direct trade everyday carry health goth master cleanse seitan vice sriracha hammock aesthetic fashion axe. Mixtape hoodie gentrify lyft. Post-ironic keffiyeh ethical poke. Slow-carb vice crucifix, waistcoat vinyl migas tumeric blue bottle freegan mustache authentic single-origin coffee hoodie synth. Hashtag craft beer bitters blog tumeric, echo park stumptown mlkshk truffaut direct trade tousled irony plaid. Brooklyn enamel pin poutine copper mug, gluten-free 3 wolf moon vape put a bird on it hashtag cold-pressed woke pitchfork artisan tattooed. Tousled gluten-free chillwave, chia wolf trust fund semiotics single-origin coffee raclette farm-to-table iceland dreamcatcher cliche. Chia kombucha tbh franzen hell of. Microdosing food truck single-origin coffee meh cray etsy, kogi iceland cronut kinfolk skateboard four dollar toast drinking vinegar plaid. Fam man braid next level, vice marfa hoodie pickled godard flannel. Fingerstache intelligentsia gastropub, etsy biodiesel distillery lo-fi leggings direct trade. Vaporware cliche aesthetic banjo, la croix kale chips actually narwhal post-ironic thundercats PBR&amp;amp;B you probably haven’t heard of them. Vinyl pitchfork yuccie, waistcoat direct trade brooklyn wayfarers distillery next level twee pickled offal freegan.</summary></entry><entry><title type="html">Another filler post</title><link href="/blog-kit-test-target/sparrow/posts/filler-post-2/" rel="alternate" type="text/html" title="Another filler post" /><published>2015-09-09T00:00:00-07:00</published><updated>2015-09-09T00:00:00-07:00</updated><id>/blog-kit-test-target/sparrow/posts/filler-post-2</id><content type="html" xml:base="/blog-kit-test-target/sparrow/posts/filler-post-2/">&lt;p&gt;Butcher before they sold out locavore, fixie twee trust fund coloring book cliche semiotics church-key keytar photo booth. Letterpress chambray trust fund, aesthetic yuccie prism pitchfork tilde master cleanse leggings kombucha four loko 90’s swag ethical. Swag snackwave live-edge locavore, hashtag gentrify gastropub brooklyn hexagon tattooed salvia art party waistcoat whatever. La croix lomo kitsch, VHS you probably haven’t heard of them shoreditch enamel pin craft beer. Banh mi edison bulb messenger bag pok pok, VHS single-origin coffee cliche glossier. Fam whatever waistcoat direct trade. Occupy four loko sartorial small batch.&lt;/p&gt;
+
+&lt;p&gt;Four loko crucifix kombucha tofu, iceland forage XOXO iPhone mlkshk kogi keffiyeh knausgaard lumbersexual bicycle rights. Tattooed ennui hexagon, squid copper mug direct trade everyday carry health goth master cleanse seitan vice sriracha hammock aesthetic fashion axe. Mixtape hoodie gentrify lyft. Post-ironic keffiyeh ethical poke. Slow-carb vice crucifix, waistcoat vinyl migas tumeric blue bottle freegan mustache authentic single-origin coffee hoodie synth. Hashtag craft beer bitters blog tumeric, echo park stumptown mlkshk truffaut direct trade tousled irony plaid. Brooklyn enamel pin poutine copper mug, gluten-free 3 wolf moon vape put a bird on it hashtag cold-pressed woke pitchfork artisan tattooed.&lt;/p&gt;
+
+&lt;p&gt;Tousled gluten-free chillwave, chia wolf trust fund semiotics single-origin coffee raclette farm-to-table iceland dreamcatcher cliche. Chia kombucha tbh franzen hell of. Microdosing food truck single-origin coffee meh cray etsy, kogi iceland cronut kinfolk skateboard four dollar toast drinking vinegar plaid. Fam man braid next level, vice marfa hoodie pickled godard flannel. Fingerstache intelligentsia gastropub, etsy biodiesel distillery lo-fi leggings direct trade. Vaporware cliche aesthetic banjo, la croix kale chips actually narwhal post-ironic thundercats PBR&amp;amp;B you probably haven’t heard of them. Vinyl pitchfork yuccie, waistcoat direct trade brooklyn wayfarers distillery next level twee pickled offal freegan.&lt;/p&gt;</content><author><name></name></author><summary type="html">Butcher before they sold out locavore, fixie twee trust fund coloring book cliche semiotics church-key keytar photo booth. Letterpress chambray trust fund, aesthetic yuccie prism pitchfork tilde master cleanse leggings kombucha four loko 90’s swag ethical. Swag snackwave live-edge locavore, hashtag gentrify gastropub brooklyn hexagon tattooed salvia art party waistcoat whatever. La croix lomo kitsch, VHS you probably haven’t heard of them shoreditch enamel pin craft beer. Banh mi edison bulb messenger bag pok pok, VHS single-origin coffee cliche glossier. Fam whatever waistcoat direct trade. Occupy four loko sartorial small batch. Four loko crucifix kombucha tofu, iceland forage XOXO iPhone mlkshk kogi keffiyeh knausgaard lumbersexual bicycle rights. Tattooed ennui hexagon, squid copper mug direct trade everyday carry health goth master cleanse seitan vice sriracha hammock aesthetic fashion axe. Mixtape hoodie gentrify lyft. Post-ironic keffiyeh ethical poke. Slow-carb vice crucifix, waistcoat vinyl migas tumeric blue bottle freegan mustache authentic single-origin coffee hoodie synth. Hashtag craft beer bitters blog tumeric, echo park stumptown mlkshk truffaut direct trade tousled irony plaid. Brooklyn enamel pin poutine copper mug, gluten-free 3 wolf moon vape put a bird on it hashtag cold-pressed woke pitchfork artisan tattooed. Tousled gluten-free chillwave, chia wolf trust fund semiotics single-origin coffee raclette farm-to-table iceland dreamcatcher cliche. Chia kombucha tbh franzen hell of. Microdosing food truck single-origin coffee meh cray etsy, kogi iceland cronut kinfolk skateboard four dollar toast drinking vinegar plaid. Fam man braid next level, vice marfa hoodie pickled godard flannel. Fingerstache intelligentsia gastropub, etsy biodiesel distillery lo-fi leggings direct trade. Vaporware cliche aesthetic banjo, la croix kale chips actually narwhal post-ironic thundercats PBR&amp;amp;B you probably haven’t heard of them. Vinyl pitchfork yuccie, waistcoat direct trade brooklyn wayfarers distillery next level twee pickled offal freegan.</summary></entry></feed>

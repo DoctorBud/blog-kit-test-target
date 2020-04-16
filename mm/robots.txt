@@ -1,0 +1,1 @@
+Sitemap: /blog-kit-test-target/mm/sitemap.xml

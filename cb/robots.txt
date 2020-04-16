@@ -1,0 +1,1 @@
+Sitemap: https://yourgithubname.github.io/blog-kit-test-target/cb/sitemap.xml
