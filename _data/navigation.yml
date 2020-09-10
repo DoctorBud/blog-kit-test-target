@@ -1,0 +1,12 @@
+main:
+  - title: "Blog"
+    url: /pages/blog/
+  - title: "About"
+    url: /pages/About/
+  - title: "Cheese"
+    url: /cheese/
+    description: Smartdown is like Cheese! You can put stuff in it, and you can put it in stuff.
+  - title: "GitHub"
+    url: https://github.com/smartdown/smartdown
+  - title: "Classic"
+    url: /classic/
